@@ -17,7 +17,7 @@ import shutil
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--model_dir', type=str, default='./model',
+parser.add_argument('--model_dir', type=str, default='../model',
                     help='Base directory for the model.')
 
 parser.add_argument('--clean_model_dir', action='store_true',
@@ -48,14 +48,14 @@ parser.add_argument('--learning_rate_policy', type=str, default='poly',
 parser.add_argument('--max_iter', type=int, default=30000,
                     help='Number of maximum iteration used for "poly" learning rate policy.')
 
-parser.add_argument('--data_dir', type=str, default='./dataset/',
+parser.add_argument('--data_dir', type=str, default='../dataset/',
                     help='Path to the directory containing the PASCAL VOC data tf record.')
 
 parser.add_argument('--base_architecture', type=str, default='resnet_v2_101',
                     choices=['resnet_v2_50', 'resnet_v2_101'],
                     help='The architecture of base Resnet building block.')
 
-parser.add_argument('--pre_trained_model', type=str, default='./resnet_model/resnet_v2_101.ckpt',
+parser.add_argument('--pre_trained_model', type=str, default='../resnet_model/resnet_v2_101.ckpt',
                     help='Path to the pre-trained model checkpoint.')
 
 parser.add_argument('--output_stride', type=int, default=16,

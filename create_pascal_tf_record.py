@@ -16,10 +16,10 @@ from utils import dataset_util
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data_dir', type=str, default='./dataset/VOCdevkit/VOC2012',
+parser.add_argument('--data_dir', type=str, default='../dataset/VOCdevkit/VOC2012',
                     help='Path to the directory containing the PASCAL VOC data.')
 
-parser.add_argument('--output_path', type=str, default='./dataset',
+parser.add_argument('--output_path', type=str, default='../dataset',
                     help='Path to the directory to create TFRecords outputs.')
 
 parser.add_argument('--train_data_list', type=str, default='./dataset/train.txt',
