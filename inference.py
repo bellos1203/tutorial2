@@ -13,24 +13,26 @@ import tensorflow as tf
 import deeplab_model
 from utils import preprocessing
 from utils import dataset_util
-
+import matplotlib
 from PIL import Image
+matplotlib.use('AGG')
+
 import matplotlib.pyplot as plt
 
 from tensorflow.python import debug as tf_debug
-
+import cv2
 from dcrf import crf
 import numpy as np
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data_dir', type=str, default='../dataset/inference_input',  # VOCdevkit/VOC2012/JPEGImages',
+parser.add_argument('--data_dir', type=str, default='./dataset/inference_input',  # VOCdevkit/VOC2012/JPEGImages',
                     help='The directory containing the image data.')
 
-parser.add_argument('--output_dir', type=str, default='../dataset/inference_output',
+parser.add_argument('--output_dir', type=str, default='./dataset/inference_output',
                     help='Path to the directory to generate the inference results')
 
-parser.add_argument('--infer_data_list', type=str, default='../dataset/sample_images_list.txt',
+parser.add_argument('--infer_data_list', type=str, default='./dataset/sample_images_list.txt',
                     help='Path to the file listing the inferring images.')
 
 parser.add_argument('--model_dir', type=str, default='../model_inf',
@@ -105,6 +107,7 @@ def main(unused_argv):
     ax2.set_title('Segmentation with CRF post-processing _ 1')
     f.savefig(path_to_output, bbox_inches='tight')
 
+    # cv2.imwrite(output_filename, crf_decode)
 
 if __name__ == '__main__':
   tf.logging.set_verbosity(tf.logging.INFO)
